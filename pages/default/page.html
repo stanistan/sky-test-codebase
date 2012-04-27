@@ -1,0 +1,34 @@
+
+<h1>{{title}}</h1>
+<h2>Getting Started</h2>
+<p>
+	To replace this default homepage, create the following file in your codebase:
+</p>
+<code>
+	pages/default/default.php
+</code>
+
+<h2>Documentation</h2>
+
+{% 
+	set links = [
+			{ 	
+				url: 'http://switchbreak.com/skyphp',
+			 	title: 'SkyPHP Docs'
+			 },
+			{ 	
+				url: 'http://github.com/SkyPHP/skyphp/wiki',
+				title: 'GitHub Wiki'
+			}
+		] 
+%}
+
+<ul>
+	{% for i in links %}
+	<li>
+		<a href="{{i.url}}" target="_blank">
+			{{i.title}}
+		</a>
+	</li>
+	{% endfor %}
+</ul>

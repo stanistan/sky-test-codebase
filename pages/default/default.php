@@ -2,7 +2,19 @@
 
 // default
 
-$loader = new Twig_Loader_String();
-$twig = new Twig_Environment($loader);
+global $sky_storage_path;
 
-echo $twig->render('Hello {{name}}!', array('name' => 'Stan'));
+$this->title = 'Welcome To SkyPHP';
+
+$loader = new Twig_Loader_Filesystem(__DIR__);
+$twig = new Twig_Environment($loader, array(
+	'cache' => $sky_storage_path . 'templates'
+));
+
+$t = $twig->loadTemplate('page.html');
+
+$this->template('html5', 'top');
+
+echo $t->render(array('title' => $this->title ));
+
+$this->template('html5', 'bottom');
