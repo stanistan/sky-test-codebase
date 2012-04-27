@@ -1,0 +1,3 @@
+<?
+
+$primary_table = 'abc';
